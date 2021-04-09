@@ -1,0 +1,73 @@
+Introduction au cours, objectifs
+--------------------------------
+
+Développer une Web App en Java
+
+App monolithique : standAlone d'un seul tenant, d'un seul gros composant, déployer sur autant de machine que l'on veut ...
+
+Architecture client <---> serveur : on installe un module sur le serveur 
+    App Web : client simple nav (req htttp) vers le serveur Web 
+    App Entreprise : on installe un module client au besoin (année prochaine)
+        .Module Web + module entreprise(différents composants, briques logicielles, Service, Microservices,....)
+
+Serveurs : 
+    .Serveur Web : qui a comme client un navigateur ---> Http 
+    .Serveur Web Java : orianté Java comme tomkat(apache), contenais un conteneur permetant de gérer les Servelets(généré automatiquement avec nos framework), JSP(Java Server Page) --> page coté avec du Java pure et dure
+    .Serveur App : genéralement aussi un serveur Web(Java) + app plus lourdes avec des module web-EE --> GlassFish, JBoss...
+    .Serveur embarqué : serveur intégré à l'app que l'on développe, on utilise un framework et on demande d'utiliser un serveur embarqué --> se trouvera dans le fichier JAR
+
+
+Java : 
+    - Java SE : dernière versions jdk15 
+    - Java EE : Java SE + spécifications (API = ensemble de définitions et de protocoles qui facilite la création et l'intégration de logiciels d'app) -> Jakarta EE 
+    - Spring -> framework Java créé dans les année 90, alternative à Java EE .., les configurations de Spring se font dans des fichiers XMl 
+    - Spring Boot --> corrige le problème des XML ..  
+
+Design Pattern : une solution algorithmique à un problème fréquent...(MVC) module view controleur c'est le design Pattern que l'on va uttiliser ..
+    Model : gestion et traitement de données, logique de métier, à partir des articles commandé créé la facture...
+    View : interface vu par le client 
+    Conroleur : navigation dans l'interface
+
+Framework : solution logiciel qui permet de résoudre un problème fréquent (design Pattern) --> squellete d'un application dans un domaine particuluer 
+
+Producteurs de logiciels : permettent à partir de différents composants de les assembler avant de déployer le produit final 
+    .Maven : outil de gestion et d'automatisation de production des projets logiciels Java en général et Java EE en particulier. 
+        (gestion automatique des dépendances)--> pom.xml fichier de configuration 
+    .Ant 
+    .Gradle 
+
+www.baeldung.com/ant-maven-gradle 
+
+IoC : Inversion of Control 
+
+    - Injection de référence 
+    - CDI (Context and Dependecy Injection)
+    P.O.O -> dans une app on utilise des objectifs ! -> ces objets sont créés dans la mémoire et c'est l'app qui gère le cycle de vie de ces objets 
+            Employe E = new Employe(); un objets cesse d'exister dès qu'il n'est plus référencé... **GarbageCollector**
+
+    !!En Inversion de control ce n'est plus l'app qui gère la création et la gestion des objects mais le serveur!! 
+        @Inject 
+        Employe E 
+    
+    Web App, Ent App -> Accès BD (BD relationnelle)
+
+    Java -> accès à une base de données 
+        .API JDBC --> Java Data Base Connectivity --> API de base pour permettre à un programme d'accéder à une base de données 
+            -> incov -> accès a la BD obligé d'ulitser le langage sql -> obliger d'encapsuler du code sql dans des instruction JDBC --> il faudra créer
+            autant de requêtes SQl spécifiques qu'il y a d'accès spécifiques à la BD à partir de l'app 
+
+            P.O.O mais on accède à une SGBDR qui ne connait pas la notion d'objet! 
+
+            Employe E = new Employe("Severs", "blabla", "blili"); 
+            --> obliger de créer une requêtes sql qui split toutes ces informations de l'objet et ensuite inserer ces informations dans la BD 
+            --> impossible de fare persist(E) 
+            !!Mais JDBC reste quand même d'actualier en java (explicitement) ou implicitement en utilisant JPA. JDBC est la seul API à pouvoir communiquer avec une JDBC
+
+        .API JPA : Java Persistence API --> met en oevre l'ORM --> Object Relationnal Mapping : permet de mapper un object avec ses données dans la BD 
+            object.att --> Table.champs 
+            persist(E), Employe E = Find(""), ... 
+
+            Code Java --> JDBC (encapsule des requêtes SQL) ->  BD 
+            Code Java --> JPA (manipule uniquement des objects) -> JDBC -> BD 
+
+Le fait d'installer une netbeans automatiquement netbeans installe une base de données berbi(SGBDR)(Apache Derby est un moteur de base de données relationnelle écrit en langage Java qui peut être embarqué dans des programmes écrits en Java. )
