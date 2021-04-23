@@ -1,0 +1,25 @@
+Cours 24/3
+----------
+
+MCD(conceptuel) --> MOD(organisationnelle) --> MLD (logique car BD relationnelle) --> MPD (physique SGBD)
+
+MCD : 
+    -Diagramme EA
+    -Diagramme de classe persistantes UML qu'on appel un diagramme de schéma 
+
+    "MOD est pratiquement une copie parfaite du MCD au quel on a rajoté une quantification et des droits d'acc"
+
+
+EA
+--
+On parle d'entité et d'occurence == "Classe et instance"
+
+MLD on parle de table et d'enregistrement 
+n et n --> table de jointure car clès secondaire etrangère ne fonctionne que pour 1 et n on ne peut avoir qu'une valeur de clès 
+
+Propriété d'assosiation "Obligatoire pour un étudiant pour un cours particulier"
+
+Les attribue sont en dépendance fonctionnelle de l'identifiant de leur entité 
+
+Les propriétés d'assosiation sont en dépendance fonctionnelle de tout les identifiant des entité qui participe à l'association
+
