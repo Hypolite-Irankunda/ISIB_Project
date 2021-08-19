@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire commande</title>
+    <link rel="stylesheet" href=".\css\bootstrap.min.css">
+</head>
+<body>
+    <!-- Head -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- Changer href en locahoost ou en l'adresse ip du serveur  -->
+          <a class="navbar-brand" href="http://<%= ipAdd %>:3030/">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./formulaire">Formulaire</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/xml">GetXML</a>
+              </li>
+              <form action="/title"  class="d-flex">
+                <input class="form-control me-2" type="search" name="name" placeholder="MangaToDelete" aria-label="Search">
+                <button class="btn btn-outline-danger " type="submit">Delete</button>
+              </form>
+            </ul>
+            <form action="/name" method="GET" class="d-flex">
+              <input class="form-control me-2" type="search" name="name" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Genre</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Article</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Auteur</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Quantité</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Motant</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+              </div>
+          </div>
+          
+          <div class="col align-self-center">
+            <form>
+                
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+
+
+
+
+
+      <!-- Footer -->
+      <footer class="footer">
+        <center>Copyright &copy; Hypolite-2021-2022- All Right Reserved</center>
+      </footer>
+</body>
+</html>

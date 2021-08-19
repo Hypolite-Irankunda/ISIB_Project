@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+<th:block th:with="attribute=username">
+      <input type="text" th:field="*{__${attribute}__}" />
+      <span th:if="${#fields.hasErrors(attribute)}" th:errors="*{__${attribute}__}" class="text-danger help-block" ></span>
+</th:block>
+
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <form th:action="@{/suite}" th:object="${emp}" method="post">
+         Id:     <input type="text" th:field="*{id}" th:errorclass="errorField"/> <br>
+         <span th:errors="*{id}"  class="errorMsg">Erreur Id</span><br>
+                
+         Nom:    <input type="text" th:field="*{nom}"  th:errorclass="errorField"/> <br>
+         <span th:errors="*{nom}" class="errorMsg">Erreur Nom</span><br>
+        <button type="submit" > Envoyer</button>  
+      </form>          
+    </body>
+</html>

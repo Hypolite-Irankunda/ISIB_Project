@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title>Shopping Cart Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Product Detail</h1>
+<h1>Product list</h1>
+<span th:if="${#lists.isEmpty(cart.products)}">Liste Vide</span>
+<span th:if="${!#lists.isEmpty(cart.products)}">
+  <table>
+    <tr>
+        <th>Product Code </th>
+    </tr>
+    
+    <tr th:each="prod : ${cart.products}">
+        <td th:text="${prod}"></td>
+    </tr>
+ </table>
+</span>
+</body>
+</html>

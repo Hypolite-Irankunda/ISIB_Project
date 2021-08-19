@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <form th:action="@{/urlCtrl}" th:object="${user}" method="post">
+            Nom: <input type="text" th:field="*{firstname}"/> <br>
+            Prenom: <input type="text" th:field="*{lastname}"/> <br>
+            <input type="checkbox" th:field="*{type}" th:value="Bachelier"/> Bachelier
+            <input type="checkbox" th:field="*{type}" th:value="Master"/> Master <br>
+            <input type="checkbox" th:field="*{sexe}" th:value="M"/> Masculin
+            <input type="checkbox" th:field="*{sexe}" th:value="F"/> Féminin <br>
+            <select th:field="*{langue}" >
+                <option th:value="Fr"> Français </option>
+                <option th:value="Ang"> Anglais </option>
+                <option th:value="Néer"> Néerlandais </option>
+            </select> <br>
+            <button type="submit" > Envoyer</button>
+                
+            
+            
+            
+        </form>
+    </body>
+</html>
